@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # تأكد من أنك تستخدم قاعدة بيانات PostgreSQL في الإنتاج:
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    'default': dj_database_url.config(default=os.environ.get('postgresql://admin:2P70Lpo0wUM6hUzX9YaxjvwU0nWFBV6k@dpg-cvr8jt0gjchc73bpliv0-a/mydb_cede'))
 }
 
 
