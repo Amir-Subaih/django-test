@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # تأكد من أنك تستخدم قاعدة بيانات PostgreSQL في الإنتاج:
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('postgresql://admin:2P70Lpo0wUM6hUzX9YaxjvwU0nWFBV6k@dpg-cvr8jt0gjchc73bpliv0-a/mydb_cede'))
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
 
 
