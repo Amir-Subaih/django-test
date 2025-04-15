@@ -18,9 +18,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework_simplejwt.views import TokenObtainPairView
+from account.serializers import CustomTokenObtainPairSerializer
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/account/', include('account.urls')),
-    path('api/token/', TokenObtainPairView.as_view()),
+    path('api/token/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
 ]

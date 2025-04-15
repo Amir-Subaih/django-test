@@ -48,11 +48,7 @@ class Account(AbstractBaseUser):
 
 
 class Profile(models.Model):
-    account = models.OneToOneField(
-        'account.Account',  # Use string reference
-        related_name='profile',
-        on_delete=models.CASCADE
-    )
+    account = models.OneToOneField(Account, related_name='profile', on_delete=models.CASCADE)  # Use Account instead of User
     reset_password_token = models.CharField(max_length=50, blank=True, default='')
     reset_password_expire = models.DateTimeField(null=True, blank=True)
 

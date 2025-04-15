@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'account.apps.AccountConfig'
 ]
 
@@ -76,18 +77,18 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # تأكد من أنك تستخدم قاعدة بيانات PostgreSQL في الإنتاج:
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
-}
+# import dj_database_url
+# DATABASES = {
+#     'default': dj_database_url.config(default=config('DATABASE_URL'))
+# }
 
 
 SIMPLE_JWT = {
@@ -97,7 +98,10 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
 }
+# settings.py
 AUTH_USER_MODEL = 'account.Account'
+
+
 
 
 # Password validation
